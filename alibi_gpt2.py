@@ -109,7 +109,6 @@ class GPT(nn.Module):
         # forward the token and posisition embeddings
 
         tok_emb = self.transformer.wte(idx) # token embeddings of shape (B, T, n_embd)
-        # x = tok_emb + pos_emb
         x = tok_emb
         # forward the blocks of the transformer
         if self.attn_mask is None or self.attn_mask.size(1) != T:
