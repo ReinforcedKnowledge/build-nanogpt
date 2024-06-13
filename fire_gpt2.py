@@ -123,7 +123,6 @@ class GPT(nn.Module):
     def forward(self, idx, targets=None):
         # idx is of shape (B, T)
         B, T = idx.size()
-        # assert T <= self.config.block_size, f"Cannot forward sequence of length {T}, block size is only {self.config.block_size}"
         # forward the token and posisition embeddings
         tok_emb = self.transformer.wte(idx) # token embeddings of shape (B, T, n_embd)
         x = tok_emb
